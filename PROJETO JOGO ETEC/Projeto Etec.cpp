@@ -8,7 +8,7 @@ using namespace std;
 int main(){
 	
 	int mFloresta[10][10]; //matriz para floresta
-	int i,j,nivel; //var para repetiÃ§oes
+	int i,j,nivel; //var para repetiçoes
 	int idioma,arvore=0,tiro=5,tiroArvore,dif; //var para utilidades
 	int nRandomico,nStatico; //var para randomico (local alien)
 	
@@ -17,17 +17,17 @@ int main(){
 	nRandomico=rand()%100;
 	nStatico=nRandomico;
 	//menu idioma
-	cout<<"                            Selecione o idioma";
+	cout<<"\n\n                            Selecione o idioma";
 	cout<<"\n\n	    	              <1> Portugues";
 	cout<<"\n			       <2> Ingles";
 	cout<<"\n\n                	    Idioma Escolhido";
 	cout<<"\n			  	  >>>";cin>>idioma;
 	
-	cout<<endl<<endl;
+	system("cls");
 
 	if(idioma==1){
 		//menu nivel
-		cout<<"                            Bem Vindo ao jogo\n\n";
+		cout<<"\n\n                            Bem Vindo ao jogo\n\n";
 		cout<<"             Para iniciar a jogar, selecione um dos niveis\n\n";
 		cout<<"                            <1> Facil";
 		cout<<"\n                            <2> Medio";
@@ -35,13 +35,17 @@ int main(){
 		cout<<"\n\n                         Nivel Selecionado";
 		cout<<"\n                             >>> "; cin>>nivel;
 		cout<<endl;
-		
-		cout<<"\n                            BEM VINDO A FLORESTA"<<endl<<endl<<endl;
+		system("cls");
+		cout<<"\n\n                            BEM VINDO A FLORESTA"<<endl<<endl<<endl;
 		cout<<"\n Situacao:"<<endl<<endl;
-		cout<<"	Voce e um lenhador, um dia voce estava passeando pela floresta de 100 arvores e de repente ele avistou uma luz estranha no ceu, se aproximou da luz e percebeu que desceu algo da luz, um marciano se escondeu atras de uma das 100 arvores, assustado, sacou sua espingarda que tem apenas 5 tiros";
-		cout<<"\nAgora voce esta na floresta e esta tentando acertar o marciano.";
+		cout<<"   Voce e um lenhador, um dia voce estava passeando pela floresta de 100 arvores";
+		cout<<"e de repente ele avistou uma luz estranha no ceu, se aproximou da luz e percebeu";
+		cout<<"que desceu algo da luz, um marciano se escondeu atras de uma das 100 arvores, assus";
+		cout<<"tado, sacou sua espingarda que tem apenas 5 tiros";
+		cout<<"\n   Agora voce esta na floresta e esta tentando acertar o marciano."<<endl;
 		cout<<endl;
 		system("pause");
+		system("cls");
 		
 		cout<<"\n\n                                    FLORESTA"<<endl<<endl;
 		if(nivel==1){
@@ -80,7 +84,8 @@ int main(){
 				}
 				if(tiroArvore==nStatico){
 					tiro=tiro-10;
-					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
+					system("cls");
+					cout << "\n\nTIROS RESTANTES: " << tiro+10 << endl;
 					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
 				}else if(tiroArvore!=nStatico){
 					cout << endl;
@@ -89,9 +94,12 @@ int main(){
 					system("pause");
 				}
 				if(tiro==0){
-					cout << "\n	TIROS: " << tiro << endl;
-					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+					system("cls");
+					cout << "\n				TIROS: " << tiro << endl;
+					cout << "\n			Suas balas acabaram!";
+					cout << "\n			Voce foi pego pelo Marciano!";
+					cout << "\n			Voce foi abduzido!!!";
+					cout << "\n			O Marciano estava na arvore " << nStatico << endl << endl;
 				}
 			}else{
 				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
@@ -133,8 +141,9 @@ int main(){
 				}
 				if(tiroArvore==nStatico){
 					tiro=tiro-10;
-					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
-					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
+					system("cls");
+					cout << "\n				TIROS RESTANTES: " << tiro+10 << endl;
+					cout << "\n			PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
 				}else if(tiroArvore!=nStatico){
 					cout << endl;
 	
@@ -142,9 +151,12 @@ int main(){
 					system("pause");
 				}
 				if(tiro==0){
-					cout << "\n	TIROS: " << tiro << endl;
-					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+					system("cls");
+					cout << "\n				TIROS: " << tiro << endl;
+					cout << "\n			Suas balas acabaram!";
+					cout << "\n			Voce foi pego pelo Marciano!";
+					cout << "\n			Voce foi abduzido!!!";
+					cout << "\n			O Marciano estava na arvore " << nStatico << endl << endl;
 				}
 			}else{
 				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
@@ -187,8 +199,9 @@ int main(){
 				}
 				if(tiroArvore==nStatico){
 					tiro=tiro-10;
-					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
-					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
+					system("cls");
+					cout << "\n				TIROS RESTANTES: " << tiro+10 << endl;
+					cout << "\n			PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
 				}else if(tiroArvore!=nStatico){
 					cout << endl;
 	
@@ -196,14 +209,19 @@ int main(){
 					system("pause");
 				}
 				if(tiro==0){
-					cout << "\n	TIROS: " << tiro << endl;
-					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+					system("cls");
+					cout << "\n				TIROS: " << tiro << endl;
+					cout << "\n			Suas balas acabaram!";
+					cout << "\n			Voce foi pego pelo Marciano!";
+					cout << "\n			Voce foi abduzido!!!";
+					cout << "\n			O Marciano estava na arvore " << nStatico << endl << endl;
 				}
 			}else{
 				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
 			}
-		}
+			}
+		}else{
+			cout<<"\n\n				Nivel nao existente\n\n";
 		}
 	}else if(idioma==2){
 		//menu nivel
@@ -215,12 +233,19 @@ int main(){
 		cout<<"\n\n                         Nivel Selecionado";
 		cout<<"\n                             >>> "; cin>>nivel;
 		cout<<endl;
-		
+		system("cls");
 		
 		cout<<"\n                            WELCOME TO THE JUNGLE"<<endl<<endl<<endl;
 		cout<<"\n Situacao:"<<endl<<endl;
-		cout<<"	Voce e um lenhador, um dia voce estava passeando pela floresta de 100 arvores e de repente ele avistou uma luz estranha no ceu, se aproximou da luz e percebeu que desceu algo da luz, um marciano se escondeu atras de uma das 100 arvores, assustado, sacou sua espingarda que tem apenas 5 tiros";
-		cout<<"\nAgora voce esta na floresta e esta tentando acertar o marciano.";
+		cout<<"   Voce e um lenhador, um dia voce estava passeando pela floresta de 100 arvores";
+		cout<<"e de repente ele avistou uma luz estranha no ceu, se aproximou da luz e percebeu";
+		cout<<"que desceu algo da luz, um marciano se escondeu atras de uma das 100 arvores, assus";
+		cout<<"tado, sacou sua espingarda que tem apenas 5 tiros";
+		cout<<"\n   Agora voce esta na floresta e esta tentando acertar o marciano."<<endl;
+		cout<<endl;
+		system("pause");
+		system("cls");
+		
 		cout<<"\n\n                                    FLOREST"<<endl<<endl;
 		if(nivel==1){
 			tiro+=5;
@@ -258,8 +283,9 @@ int main(){
 				}
 				if(tiroArvore==nStatico){
 					tiro=tiro-10;
-					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
-					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
+					system("cls");
+					cout << "\n				TIROS RESTANTES: " << tiro+10 << endl;
+					cout << "\n			PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
 				}else if(tiroArvore!=nStatico){
 					cout << endl;
 	
@@ -267,9 +293,12 @@ int main(){
 					system("pause");
 				}
 				if(tiro==0){
-					cout << "\n	TIROS: " << tiro << endl;
-					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+					system("cls");
+					cout << "\n				TIROS: " << tiro << endl;
+					cout << "\n			Suas balas acabaram!";
+					cout << "\n			Voce foi pego pelo Marciano!";
+					cout << "\n			Voce foi abduzido!!!";
+					cout << "\n			O Marciano estava na arvore " << nStatico << endl << endl;
 				}
 			}else{
 				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
@@ -311,8 +340,9 @@ int main(){
 				}
 				if(tiroArvore==nStatico){
 					tiro=tiro-10;
-					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
-					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
+					system("cls");
+					cout << "\n				TIROS RESTANTES: " << tiro+10 << endl;
+					cout << "\n			PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
 				}else if(tiroArvore!=nStatico){
 					cout << endl;
 	
@@ -320,9 +350,12 @@ int main(){
 					system("pause");
 				}
 				if(tiro==0){
-					cout << "\n	TIROS: " << tiro << endl;
-					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+					system("cls");
+					cout << "\n				TIROS: " << tiro << endl;
+					cout << "\n			Suas balas acabaram!";
+					cout << "\n			Voce foi pego pelo Marciano!";
+					cout << "\n			Voce foi abduzido!!!";
+					cout << "\n			O Marciano estava na arvore " << nStatico << endl << endl;
 				}
 			}else{
 				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
@@ -364,8 +397,9 @@ int main(){
 				}
 				if(tiroArvore==nStatico){
 					tiro=tiro-10;
-					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
-					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
+					system("cls");
+					cout << "\n				TIROS RESTANTES: " << tiro+10 << endl;
+					cout << "\n			PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
 				}else if(tiroArvore!=nStatico){
 					cout << endl;
 	
@@ -373,15 +407,22 @@ int main(){
 					system("pause");
 				}
 				if(tiro==0){
-					cout << "\n	TIROS: " << tiro << endl;
-					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+					system("cls");					
+					cout << "\n				TIROS: " << tiro << endl;
+					cout << "\n			Suas balas acabaram!";
+					cout << "\n			Voce foi pego pelo Marciano!";
+					cout << "\n			Voce foi abduzido!!!";
+					cout << "\n			O Marciano estava na arvore " << nStatico << endl << endl;
 				}
 			}else{
 				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
 			}
 		}
-		}
+	}else{
+		cout<<"\n\n				Nivel nao existente\n\n";
+	}
+	}else{
+		cout<<"\n\n				Idioma invalido"<<endl;
 	}
 		cout << endl << endl;
 system("PAUSE");
