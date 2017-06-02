@@ -1,0 +1,9 @@
+sites para dar uma olhada
+
+PARTE GRAFICA!!!!
+
+https://www.sfml-dev.org/
+
+https://www.sfml-dev.org/tutorials/2.0/graphics-shape.php
+https://www.sfml-dev.org/tutorials/2.0/window-inputs.php
+https://www.sfml-dev.org/tutorials/2.0/graphics-draw.php
