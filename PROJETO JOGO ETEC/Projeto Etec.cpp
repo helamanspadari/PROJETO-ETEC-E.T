@@ -8,8 +8,8 @@ using namespace std;
 int main(){
 	
 	int mFloresta[10][10]; //matriz para floresta
-	int i,j,nivel; //var para repetiçoes
-	int idioma,arvore=0,tiro=5,tiroArvore; //var para utilidades
+	int i,j,nivel; //var para repetiÃ§oes
+	int idioma,arvore=0,tiro=5,tiroArvore,dif; //var para utilidades
 	int nRandomico,nStatico; //var para randomico (local alien)
 	
 	
@@ -59,64 +59,98 @@ int main(){
 					tiro--;
 					arvore=0;
 					
-					cout<<"\n\nEscolha uma arvore para atirar\n\n>>> "; cin>>tiroArvore;
-					cout<<endl<<endl;
-					
-					if(tiroArvore==nStatico && tiroArvore>=1){
-						tiro=tiro-10;
-						cout<<"\nTIROS RESTANTES: "<<tiro+10<<endl;
-						cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
-					}else if(tiroArvore!=nStatico && tiroArvore>=1){
-						cout<<endl;
-		
-						cout<<"\nVoce errou!\n\n";
-						system("pause");
-					}else{
-						cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
-					}
-					if(tiro==0){
-						cout<<"\n	TIROS: "<<tiro<<endl;
-						cout<<"\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-						cout<<"\nO Marciano estava na arvore "<<nStatico<<endl<<endl;
-					}
+					cout << "\n\nEscolha uma arvore para atirar\n\n>>> "; cin >> tiroArvore;
+			cout << endl << endl;
+			if (tiroArvore>=1 && tiroArvore<=100){
+				if (nStatico>=tiroArvore){
+					dif=nStatico-tiroArvore;
+				}else{
+					dif=tiroArvore-nStatico;
 				}
-			cout<<endl<<endl;
-		}else if(nivel==2){
-			while(tiro>0){
-				cout<<"\n	TIROS: "<<tiro;
-				cout<<endl<<endl;
-				for(i=0;i<=9;i++){
-					for(j=0;j<=9;j++){
-						mFloresta[i][j]=arvore++;
-						cout<<arvore<<" ";
-					}
+				if (dif<=5){
+					cout << "Voce esta muito perto da arvore certa! (menos de 5)";
+				}else if (dif<=10){
+					cout << "Voce esta perto da arvore certa! (menos de 10)";
+				}else if (dif<=30){
+					cout << "Voce esta um pouco longe da arvore certa! (menos de 30)";
+				} else if (dif<=50){
+					cout << "Voce esta longe da arvore certa! (menos de 50)";
+				}else{
+					cout << "Voce esta muito longe da arvore certa!";
 				}
-				cout<<endl<<endl;
-				tiro--;
-				arvore=0;
-				
-				cout<<"\n\nEscolha uma arvore para atirar\n\n>>> "; cin>>tiroArvore;
-				cout<<endl<<endl;
-				
-				if(tiroArvore==nStatico && tiroArvore>=1){
+				if(tiroArvore==nStatico){
 					tiro=tiro-10;
-					cout<<"\nTIROS RESTANTES: "<<tiro+10<<endl;
+					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
 					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
-				}else if(tiroArvore!=nStatico && tiroArvore>=1){
-					cout<<endl;
+				}else if(tiroArvore!=nStatico){
+					cout << endl;
 	
 					cout<<"\nVoce errou!\n\n";
 					system("pause");
-				}else{
-					cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
 				}
 				if(tiro==0){
-					cout<<"\n	TIROS: "<<tiro<<endl;
-					cout<<"\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-					cout<<"\nO Marciano estava na arvore "<<nStatico<<endl<<endl;
+					cout << "\n	TIROS: " << tiro << endl;
+					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
+					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
 				}
+			}else{
+				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
 			}
-			cout<<endl<<endl;
+		}
+		cout << endl << endl;
+		}else if(nivel==2){
+			while(tiro>0){
+					cout<<"\n	TIROS: "<<tiro;
+					cout<<endl<<endl;
+					for(i=0;i<=9;i++){
+						for(j=0;j<=9;j++){
+							mFloresta[i][j]=arvore++;
+							cout<<arvore<<" ";
+						}
+					}
+					cout<<endl<<endl;
+					tiro--;
+					arvore=0;
+					
+					cout << "\n\nEscolha uma arvore para atirar\n\n>>> "; cin >> tiroArvore;
+					cout << endl << endl;
+			if (tiroArvore>=1 && tiroArvore<=100){
+				if (nStatico>=tiroArvore){
+					dif=nStatico-tiroArvore;
+				}else{
+					dif=tiroArvore-nStatico;
+				}
+				if (dif<=5){
+					cout << "Voce esta muito perto da arvore certa! (menos de 5)";
+				}else if (dif<=10){
+					cout << "Voce esta perto da arvore certa! (menos de 10)";
+				}else if (dif<=30){
+					cout << "Voce esta um pouco longe da arvore certa! (menos de 30)";
+				} else if (dif<=50){
+					cout << "Voce esta longe da arvore certa! (menos de 50)";
+				}else{
+					cout << "Voce esta muito longe da arvore certa!";
+				}
+				if(tiroArvore==nStatico){
+					tiro=tiro-10;
+					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
+					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
+				}else if(tiroArvore!=nStatico){
+					cout << endl;
+	
+					cout<<"\nVoce errou!\n\n";
+					system("pause");
+				}
+				if(tiro==0){
+					cout << "\n	TIROS: " << tiro << endl;
+					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
+					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+				}
+			}else{
+				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
+			}
+		}
+		cout << endl << endl;
 		}else if(nivel==3){
 			tiro=tiro-2;
 				while(tiro>0){
@@ -132,28 +166,44 @@ int main(){
 					tiro--;
 					arvore=0;
 					
-					cout<<"\n\nEscolha uma arvore para atirar\n\n>>> "; cin>>tiroArvore;
-					cout<<endl<<endl;
-					
-					if(tiroArvore==nStatico && tiroArvore>=1){
-						tiro=tiro-10;
-						cout<<"\nTIROS RESTANTES: "<<tiro+10<<endl;
-						cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
-					}else if(tiroArvore!=nStatico && tiroArvore>=1){
-						cout<<endl;
-		
-						cout<<"\nVoce errou!\n\n";
-						system("pause");
-					}else{
-						cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
-					}
-					if(tiro==0){
-						cout<<"\n	TIROS: "<<tiro<<endl;
-						cout<<"\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-						cout<<"\nO Marciano estava na arvore "<<nStatico<<endl<<endl;
-					}
+					cout << "\n\nEscolha uma arvore para atirar\n\n>>> "; cin >> tiroArvore;
+			cout << endl << endl;
+			if (tiroArvore>=1 && tiroArvore<=100){
+				if (nStatico>=tiroArvore){
+					dif=nStatico-tiroArvore;
+				}else{
+					dif=tiroArvore-nStatico;
 				}
-			cout<<endl<<endl;
+				if (dif<=5){
+					cout << "Voce esta muito perto da arvore certa! (menos de 5)";
+				}else if (dif<=10){
+					cout << "Voce esta perto da arvore certa! (menos de 10)";
+				}else if (dif<=30){
+					cout << "Voce esta um pouco longe da arvore certa! (menos de 30)";
+				} else if (dif<=50){
+					cout << "Voce esta longe da arvore certa! (menos de 50)";
+				}else{
+					cout << "Voce esta muito longe da arvore certa!";
+				}
+				if(tiroArvore==nStatico){
+					tiro=tiro-10;
+					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
+					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
+				}else if(tiroArvore!=nStatico){
+					cout << endl;
+	
+					cout<<"\nVoce errou!\n\n";
+					system("pause");
+				}
+				if(tiro==0){
+					cout << "\n	TIROS: " << tiro << endl;
+					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
+					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+				}
+			}else{
+				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
+			}
+		}
 		}
 	}else if(idioma==2){
 		//menu nivel
@@ -187,64 +237,97 @@ int main(){
 					tiro--;
 					arvore=0;
 					
-					cout<<"\n\nEscolha uma arvore para atirar\n\n>>> "; cin>>tiroArvore;
-					cout<<endl<<endl;
-					
-					if(tiroArvore==nStatico && tiroArvore>=1){
-						tiro=tiro-10;
-						cout<<"\nTIROS RESTANTES: "<<tiro+10<<endl;
-						cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
-					}else if(tiroArvore!=nStatico && tiroArvore>=1){
-						cout<<endl;
-		
-						cout<<"\nVoce errou!\n\n";
-						system("pause");
-					}else{
-						cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
-					}
-					if(tiro==0){
-						cout<<"\n	TIROS: "<<tiro<<endl;
-						cout<<"\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-						cout<<"\nO Marciano estava na arvore "<<nStatico<<endl<<endl;
-					}
+					cout << "\n\nEscolha uma arvore para atirar\n\n>>> "; cin >> tiroArvore;
+			cout << endl << endl;
+			if (tiroArvore>=1 && tiroArvore<=100){
+				if (nStatico>=tiroArvore){
+					dif=nStatico-tiroArvore;
+				}else{
+					dif=tiroArvore-nStatico;
 				}
-			cout<<endl<<endl;
-		}else if(nivel==2){
-			while(tiro>0){
-				cout<<"\n	TIROS: "<<tiro;
-				cout<<endl<<endl;
-				for(i=0;i<=9;i++){
-					for(j=0;j<=9;j++){
-						mFloresta[i][j]=arvore++;
-						cout<<arvore<<" ";
-					}
+				if (dif<=5){
+					cout << "Voce esta muito perto da arvore certa! (menos de 5)";
+				}else if (dif<=10){
+					cout << "Voce esta perto da arvore certa! (menos de 10)";
+				}else if (dif<=30){
+					cout << "Voce esta um pouco longe da arvore certa! (menos de 30)";
+				} else if (dif<=50){
+					cout << "Voce esta longe da arvore certa! (menos de 50)";
+				}else{
+					cout << "Voce esta muito longe da arvore certa!";
 				}
-				cout<<endl<<endl;
-				tiro--;
-				arvore=0;
-				
-				cout<<"\n\nEscolha uma arvore para atirar\n\n>>> "; cin>>tiroArvore;
-				cout<<endl<<endl;
-				
-				if(tiroArvore==nStatico && tiroArvore>=1){
+				if(tiroArvore==nStatico){
 					tiro=tiro-10;
-					cout<<"\nTIROS RESTANTES: "<<tiro+10<<endl;
+					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
 					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
-				}else if(tiroArvore!=nStatico && tiroArvore>=1){
-					cout<<endl;
+				}else if(tiroArvore!=nStatico){
+					cout << endl;
 	
 					cout<<"\nVoce errou!\n\n";
 					system("pause");
-				}else{
-					cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
 				}
 				if(tiro==0){
-					cout<<"\n	TIROS: "<<tiro<<endl;
-					cout<<"\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-					cout<<"\nO Marciano estava na arvore "<<nStatico<<endl<<endl;
+					cout << "\n	TIROS: " << tiro << endl;
+					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
+					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
 				}
+			}else{
+				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
 			}
-			cout<<endl<<endl;
+		}
+		cout << endl << endl;
+		}else if(nivel==2){
+			while(tiro>0){
+					cout<<"\n	TIROS: "<<tiro;
+					cout<<endl<<endl;
+					for(i=0;i<=9;i++){
+						for(j=0;j<=9;j++){
+							mFloresta[i][j]=arvore++;
+							cout<<arvore<<" ";
+						}
+					}
+					cout<<endl<<endl;
+					tiro--;
+					arvore=0;
+					
+					cout << "\n\nEscolha uma arvore para atirar\n\n>>> "; cin >> tiroArvore;
+					cout << endl << endl;
+			if (tiroArvore>=1 && tiroArvore<=100){
+				if (nStatico>=tiroArvore){
+					dif=nStatico-tiroArvore;
+				}else{
+					dif=tiroArvore-nStatico;
+				}
+				if (dif<=5){
+					cout << "Voce esta muito perto da arvore certa! (menos de 5)";
+				}else if (dif<=10){
+					cout << "Voce esta perto da arvore certa! (menos de 10)";
+				}else if (dif<=30){
+					cout << "Voce esta um pouco longe da arvore certa! (menos de 30)";
+				} else if (dif<=50){
+					cout << "Voce esta longe da arvore certa! (menos de 50)";
+				}else{
+					cout << "Voce esta muito longe da arvore certa!";
+				}
+				if(tiroArvore==nStatico){
+					tiro=tiro-10;
+					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
+					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
+				}else if(tiroArvore!=nStatico){
+					cout << endl;
+	
+					cout<<"\nVoce errou!\n\n";
+					system("pause");
+				}
+				if(tiro==0){
+					cout << "\n	TIROS: " << tiro << endl;
+					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
+					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+				}
+			}else{
+				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
+			}
+		}
 		}else if(nivel==3){
 			tiro=tiro-2;
 				while(tiro>0){
@@ -260,29 +343,46 @@ int main(){
 					tiro--;
 					arvore=0;
 					
-					cout<<"\n\nEscolha uma arvore para atirar\n\n>>> "; cin>>tiroArvore;
-					cout<<endl<<endl;
-					
-					if(tiroArvore==nStatico && tiroArvore>=1){
-						tiro=tiro-10;
-						cout<<"\nTIROS RESTANTES: "<<tiro+10<<endl;
-						cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
-					}else if(tiroArvore!=nStatico && tiroArvore>=1){
-						cout<<endl;
-		
-						cout<<"\nVoce errou!\n\n";
-						system("pause");
-					}else{
-						cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
-					}
-					if(tiro==0){
-						cout<<"\n	TIROS: "<<tiro<<endl;
-						cout<<"\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
-						cout<<"\nO Marciano estava na arvore "<<nStatico<<endl<<endl;
-					}
+					cout << "\n\nEscolha uma arvore para atirar\n\n>>> "; cin >> tiroArvore;
+			cout << endl << endl;
+			if (tiroArvore>=1 && tiroArvore<=100){
+				if (nStatico>=tiroArvore){
+					dif=nStatico-tiroArvore;
+				}else{
+					dif=tiroArvore-nStatico;
 				}
-			cout<<endl<<endl;
+				if (dif<=5){
+					cout << "Voce esta muito perto da arvore certa! (menos de 5)";
+				}else if (dif<=10){
+					cout << "Voce esta perto da arvore certa! (menos de 10)";
+				}else if (dif<=30){
+					cout << "Voce esta um pouco longe da arvore certa! (menos de 30)";
+				} else if (dif<=50){
+					cout << "Voce esta longe da arvore certa! (menos de 50)";
+				}else{
+					cout << "Voce esta muito longe da arvore certa!";
+				}
+				if(tiroArvore==nStatico){
+					tiro=tiro-10;
+					cout << "\nTIROS RESTANTES: " << tiro+10 << endl;
+					cout<<"PARABENS VOCE ELIMINOU O MARCIANO!\n\n";
+				}else if(tiroArvore!=nStatico){
+					cout << endl;
+	
+					cout<<"\nVoce errou!\n\n";
+					system("pause");
+				}
+				if(tiro==0){
+					cout << "\n	TIROS: " << tiro << endl;
+					cout << "\nSuas balas acabaram!\nVoce foi pego pelo Marciano!\nVoce foi abduzido!!!";
+					cout << "\nO Marciano estava na arvore " << nStatico << endl << endl;
+				}
+			}else{
+				cout << "Voce perdeu um tiro por atirar em uma arvore que nao existe!\n\n";
+			}
+		}
 		}
 	}
+		cout << endl << endl;
 system("PAUSE");
 }
