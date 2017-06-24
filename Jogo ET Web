@@ -1,0 +1,162 @@
+<!--AQUI É A PARTE PRINCIPAL, A TELA DAS ÁRVORES->
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Jogo do ET</title>
+
+		<script src="newjogo.js"></script>
+
+	</head>
+
+	<body onload="iniciaJogo()">
+		<div style="float:left; width:100px; height:500px; background: #FFF; border: solid 1px #A2A2A2; margin-right: 5px;">
+			<table border="0">
+				<tr>
+					<td>
+						<img src="arvore2.png" style="width: 40px;" />
+					</td>
+					<td>
+						<span id="arvores_inteiras" style="font-size: 40px;"></span>
+					</td>
+				</tr>
+			</table>
+
+			<br />
+			<table border="0">
+				<tr>
+					<td>
+						<img src="X.png" style="width: 40px;" />
+					</td>
+					<td>
+						<span id="arvores_clicadas" style="font-size: 40px;"></span>
+					</td>
+				</tr>
+			</table>
+
+			<br/>
+		</div>
+
+		<div id="cenario" style="float: left; width: 1200px; height: 600px; background: url('fundo.jpg'); background-position: bottom;"></div>
+	</body>
+	
+</html>
+-------------------------------------------------------------------------------
+<!--AQUI É A PARTE DE ESCOLHA DE IDIOMA E NÍVEL, PRECISA DE ALTERAÇÕES-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Jogo do ET</title>
+		<script language='Javascript'>
+		
+		function iniciaJogo(){
+			var nivel_jogo = document.getElementById('nivel_jogo').value;
+			window.location.href = 'newjogo.html?'+nivel_jogo;
+			
+		}
+		</script>
+</head>
+<body>
+		<div>
+			<p>
+				<b>Nível: </b>
+				<select id="nivel_jogo">
+					<option value="1">Fácil</option>
+					<option value="2">Normal</option>
+					<option value="3">Difícil</option>
+				</select>
+			</p>
+			<p>
+				<b>Idioma: </b>
+				<select id="lingua_jogo">
+					<option value="1">Português</option>
+					<option value="2">Inglês</option>
+				</select>
+			</p>
+			<h2>Clique para começar a jogar!</h2>
+			<br />
+			<img src="iniciar.png" onclick="iniciaJogo()" />
+		</div>
+</body>
+</html>
+--------------------------------------------------------------------------------------
+//AQUI É O SCRIPT PRINCIPAL DO JOGO
+var n;
+n = Math.floor(Math.random() * 100); //aleatoriedade
+document.write(n + "</br");
+
+function iniciaJogo(){
+
+	var url = window.location.search;
+	
+	var nivel_jogo = url.replace("?", "");
+
+	var tiro = 0;
+
+	if(nivel_jogo == 1) { //1 fácil -> 10 tiros
+		tiro = 10;
+	}
+
+	if(nivel_jogo == 2) { //2 normal -> 5 tiros
+		tiro = 5;
+	}
+	
+	if(nivel_jogo == 3) { //3 difícil -> 3 tiros
+		tiro = 3;
+	}
+
+	//quantidade de árvores
+	var qtd_arvores = 100;
+	
+	cria_arvores(qtd_arvores);
+
+	//exibe quantidade de árvores
+	document.getElementById('arvores_inteiras').innerHTML = qtd_arvores;
+	document.getElementById('arvores_clicadas').innerHTML = 0;
+
+	contagem_tempo(tempo_segundos - 1)
+	
+}
+
+function cria_arvores(qtd_arvores){
+
+	for(var i = 1; i <= qtd_arvores; i++){
+
+		var arvore = document.createElement("img");
+		arvore.src = 'arvore2.png';
+		arvore.style.width = '40px';
+		arvore.style.margin = '10px';
+		arvore.id = 'b'+i;
+		arvore.onclick = function(){ clicar(this); };
+
+		document.getElementById('cenario').appendChild(arvore);
+	}
+}
+
+function clicar(a){
+
+	var id_arvore = a.id;
+
+	document.getElementById(id_arvore).src = 'X.png';
+
+	pontuacao(-1);
+
+}
+
+function pontuacao(acao){
+
+	var arvores_inteiras = document.getElementById('arvores_inteiras').innerHTML;
+	var arvores_clicadas  = document.getElementById('arvores_clicadas').innerHTML;
+
+	arvores_inteiras = parseInt(arvores_inteiras);
+	arvores_clicadas = parseInt(arvores_clicadas);
+
+	arvores_inteiras = arvores_inteiras + acao;
+	arvores_clicadas = arvores_clicadas - acao;
+
+	document.getElementById('arvores_inteiras').innerHTML = arvores_inteiras;
+	document.getElementById('arvores_clicadas').innerHTML = arvores_clicadas;
+
+	situacao_jogo(arvores_inteiras);
+}
