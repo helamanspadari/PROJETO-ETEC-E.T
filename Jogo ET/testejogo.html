@@ -3,34 +3,55 @@
 <head>
 	<title>Jogo do ET</title>
 		<script language='Javascript'>
-		
-		function iniciaJogo(){
+		function iniciaJogoPT(){
 			var nivel_jogo = document.getElementById('nivel_jogo').value;
-			window.location.href = 'newjogo.html?'+nivel_jogo;
-			
+			window.location.href = 'jogoPT.html?'+nivel_jogo;
 		}
 		</script>
+		<script language='Javascript'>
+		function iniciaJogoEN(){
+			var level_jogo = document.getElementById('level_jogo').value;
+			window.location.href = 'jogoEN.html?'+level_jogo;
+		}
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-		<div>
-			<p>
-				<b>Nível: </b>
-				<select id="nivel_jogo">
-					<option value="1">Fácil</option>
-					<option value="2">Normal</option>
-					<option value="3">Difícil</option>
-				</select>
-			</p>
-			<p>
-				<b>Idioma: </b>
-				<select id="lingua_jogo">
-					<option value="1">Português</option>
-					<option value="2">Inglês</option>
-				</select>
-			</p>
-			<h2>Clique para começar a jogar!</h2>
-			<br />
-			<img src="img/iniciar.png" onclick="iniciaJogo()" />
+	<div id="tudo">
+	<div class="sobre">
+		<h2 style="text-align: center;">Sobre o jogo</h2>
+		<p id="texto"><p> Você é um lenhador, um dia você estava passeando pela floresta de 100 árvores e de repente avistou uma luz estranha no céu, se aproximou dela e percebeu que desceu algo dali. Um marciano se escondeu atrás de uma das 100 árvores, assustado, você sacou sua espingarda que tem apenas 5 tiros. Agora tu estás na floresta e tentando acertar o marciano.</p>
+	</div>
+		<div class="nivel">
+		<h2> Clique no botão para iniciar o jogo!</h2>
+		<b>Nível: </b>
+		<select id="nivel_jogo">
+			<option value="1">Fácil</option>
+			<option value="2">Médio</option>
+			<option value="3">Difícil</option>
+		</select>
+		<img src="img/iniciar.png" onclick="iniciaJogoPT()">
+		<hr>
 		</div>
+		<div class="level">
+		<h2> Click the button to start the game!</h2>
+		<b>Level: </b>
+		<select id="level_jogo">
+			<option value="4">Easy</option>
+			<option value="5">Medium</option>
+			<option value="6">Hard</option>
+		</select>
+		<img src="img/iniciar.png" onclick="iniciaJogoEN()">
+		<hr>
+		</div>
+		<div class="desenvolvedores">
+			<h2>Conheça os desenvolvedores</h2>
+			<p>Gabriel Domingues</p>
+			<p>Guilherme Fernandes</p>
+			<p>Helaman Spadari</p>
+			<p>Matheus Guedes</p>
+			<p>Vinícius Acioly</p>
+		</div>
+	</div>
 </body>
 </html>
